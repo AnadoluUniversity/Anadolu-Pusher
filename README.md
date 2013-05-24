@@ -8,9 +8,9 @@ It makes easier to push notifications by preventing users to know details about 
 <br>
 ## Requirements
 <br>
-To use Anadolu Pusher for sending notifications over **APNS** protocol, it is a must to Firewall allows the host addresses **gateway.sandbox.push.apple.com** for development and **gateway.push.apple.com** for production and the port **2195**. 
+To use Anadolu Pusher for sending notifications over **APNS** protocol, you must allows related ports to communicate with host addresses **gateway.sandbox.push.apple.com** for development and **gateway.push.apple.com** for production and the port **2195**. 
 
-If Anadolu Pusher is used in a project that runs on an application server, to send notifications over **GCM** protocol, it is a must to upload **Google Certificate** to the aplication server. 
+If Anadolu Pusher is used in a project that runs on an application server, to send notifications over **GCM** protocol, you should upload **Google Certificate** to the aplication server. 
 
 <br>
 ## Code Examples
