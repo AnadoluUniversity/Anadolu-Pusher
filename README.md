@@ -4,13 +4,13 @@
 <br>	
 Anadolu pusher is an open source maven project that provides its users to push notifications over __Google Cloud Messaging, Apple Push Notification Service and Microsoft Push Notification Service__ protocols.
 
-It makes easier to push notifications by preventing users to know details about each specific protocol.
+It makes easier to push notifications by preventing developers to deal with details about each specific protocol.
 <br>
 ## Requirements
 <br>
-To use Anadolu Pusher for sending notifications over **APNS** protocol, you must allows related ports to communicate with host addresses **gateway.sandbox.push.apple.com** for development and **gateway.push.apple.com** for production and the port **2195**. 
+In order to use Anadolu Pusher to send notifications over **APNS** protocol, you should allow related ports in Firewall to communicate with host addresses **gateway.sandbox.push.apple.com** for development and **gateway.push.apple.com** for production and the port **2195**. 
 
-If Anadolu Pusher is used in a project that runs on an application server, to send notifications over **GCM** protocol, you should upload **Google Certificate** to the aplication server. 
+If Anadolu Pusher is used in a project that is running on an application server, in order to send notifications over **GCM** protocol, you should upload **Google Certificate** to the aplication server. 
 
 <br>
 ## Code Examples
@@ -57,6 +57,6 @@ If Anadolu Pusher is used in a project that runs on an application server, to se
 <br>
 ## Creators
 <br>
-[Zeynep Özdemir twitter](https://twitter.com/zeynep_ozdmr_ce)
+[Zeynep Özdemir twitter](https://twitter.com/zeynep_ozdmr_ce)<br>
 [İbrahim Esen github](https://github.com/iesen)<br>
 [Erk Ekin github](https://github.com/erkekin), [twitter](https://twitter.com/erkekin)<br>
