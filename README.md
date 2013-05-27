@@ -1,7 +1,7 @@
 #ANADOLU PUSHER
 
 ## Overview
-	<center><img src="http://ios.anadolu.edu.tr/opensource/Anadolu-Pusher/aplogo.png"><br><br>
+<br>	<center><img src="http://ios.anadolu.edu.tr/opensource/Anadolu-Pusher/aplogo.png"><br><br>
 Anadolu pusher is an open source maven project that provides its users to push notifications over __Google Cloud Messaging, Apple Push Notification Service and Microsoft Push Notification Service__ protocols.
 
 It makes easier to push notifications by preventing developers to deal with details about each specific protocol.
@@ -51,10 +51,9 @@ If Anadolu Pusher is used in a project that is running on an application server,
     
     MessageResult result = sender.send(message);
  
-## Acknowledgement
-<br>
+## Credits<br>
+Anadolu Pusher's logo was designed by [berkaey](http://berkaey.com).<br>
 [JavaPNS](https://code.google.com/p/javapns/)<br>
-<br>
 ## Creators
 <br>
 [Zeynep Özdemir twitter](https://twitter.com/zeynep_ozdmr_ce)<br>
