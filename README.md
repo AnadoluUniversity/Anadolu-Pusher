@@ -8,6 +8,8 @@ It makes easier to push notifications by preventing developers to deal with deta
 <br>
 ## Requirements
 <br>
+#### iOS
+
 In order to use Anadolu Pusher to send notifications over **APNS** protocol, you should allow related ports in Firewall to communicate with host addresses **gateway.sandbox.push.apple.com** for development and **gateway.push.apple.com** for production and the port **2195**. 
 
 Also, to communicate with **APNS**, you must create a certificate file for an iOS application. It provides pushing notifications to the specific application specified by the certificate file.
@@ -23,6 +25,8 @@ Steps for creating a certificate file:<br>
 8. Select the new line certificate and key, then right click and export both as 'certificate-push.p12'. You have now generated your certificate push notification .p12 file!<br>
 
 For detailed information, please visit [APNS](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Introduction.html#//apple_ref/doc/uid/TP40008194-CH1-SW1).  
+<br>
+#### Android
 
 If Anadolu Pusher is used in a project that is running on an application server, in order to send notifications over **GCM** protocol, you should upload **Google Certificate** to the aplication server. 
 
@@ -30,11 +34,14 @@ In order to push notifications to an Android device, both server side and client
 
 For detailed information about getting API Key and SenderId, please visit [GCM](http://developer.android.com/google/gcm/gs.html).
 
+<br>
+#### Windows Phone
+
 For detailed information about pushing notifications to Windows Phone devices, please visit [MPNS](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff402558(v=vs.105\).aspx).
 <br>
 ## Code Examples
 <br>
-There is a sample code to push notifications to Android, iOS and Windows Phone devices.
+There is a sample code to push notifications to **Android, iOS and Windows Phone** devices.
 
 	NotificationSender sender = new NotificationSender();
 	
@@ -71,7 +78,7 @@ There is a sample code to push notifications to Android, iOS and Windows Phone d
     
     MessageResult result = sender.send(message);
 
-There is a sample code pushing notifications only to Android devices.
+There is a sample code pushing notifications only to **Android** devices.
 	
 	NotificationSender sender = new NotificationSender();
 	GCMConfig gcmConfig = newGCMConfig('__API KEY__');
@@ -89,7 +96,7 @@ There is a sample code pushing notifications only to Android devices.
     
     MessageResult result = sender.send(message);
     
-There is a sample code pushing notifications only to iOS devices.
+There is a sample code pushing notifications only to **iOS** devices.
 
 	NotificationSender sender = new NotificationSender();
     
@@ -108,7 +115,7 @@ There is a sample code pushing notifications only to iOS devices.
     
     MessageResult result = sender.send(message);
     
-There is a sample code pushing notifications only to Windows Phone devices.
+There is a sample code pushing notifications only to **Windows Phone** devices.
 
 	NotificationSender sender = new NotificationSender();
 	
