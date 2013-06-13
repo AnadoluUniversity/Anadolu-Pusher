@@ -45,6 +45,11 @@ public class NotificationSender {
     private SenderStrategy strategy;
 
     /**
+     * Represents the number of threads to be created in order to push notifications.
+     */
+    private Integer threadNumber;
+
+    /**
      * Pushes the message to the device/devices described in the message object.
      * Returns the result of the pushing notification process for specified message.
      *
@@ -55,6 +60,9 @@ public class NotificationSender {
         List<ResultModel> resultModelList;
         MessageResult result = new MessageResult();
         result.setMessage(message);
+
+        if(threadNumber == null)
+            threadNumber=1;
 
         List<NotificationReceiver> androidReceivers = new ArrayList<NotificationReceiver>();
         List<NotificationReceiver> iosReceivers = new ArrayList<NotificationReceiver>();
@@ -79,7 +87,7 @@ public class NotificationSender {
             apnsMessage.setMessageReceivers(iosReceivers);
             strategy = new APNSSender(apnsConfig);
             resultModelList = result.getResults();
-            resultModelList.addAll(strategy.sendNotification(message));
+            resultModelList.addAll(strategy.sendNotification(message,threadNumber));
             result.setResult(resultModelList);
         }
 
@@ -88,7 +96,7 @@ public class NotificationSender {
             gcmMessage.setMessageReceivers(androidReceivers);
             strategy = new GCMSender(gcmConfig);
             resultModelList = result.getResults();
-            resultModelList.addAll(strategy.sendNotification(message));
+            resultModelList.addAll(strategy.sendNotification(message,threadNumber));
             result.setResult(resultModelList);
         }
 
@@ -105,7 +113,7 @@ public class NotificationSender {
                 strategy = new MPNSToastSender(wpConfig);
 
             resultModelList = result.getResults();
-            resultModelList.addAll(strategy.sendNotification(message));
+            resultModelList.addAll(strategy.sendNotification(message,threadNumber));
             result.setResult(resultModelList);
         }
 
@@ -136,4 +144,11 @@ public class NotificationSender {
         this.gcmConfig = gcmConfig;
     }
 
+    /**
+     * Sets the number of threads.
+     * @param threadNumber
+     */
+    public void setThreadNumber(Integer threadNumber) {
+        this.threadNumber = threadNumber;
+    }
 }

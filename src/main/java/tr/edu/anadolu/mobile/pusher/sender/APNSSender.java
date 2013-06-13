@@ -39,12 +39,9 @@ public class APNSSender implements SenderStrategy {
      * Each one represents a status of a pushed notification and  a device id for a device that notification sent to.
      */
     @Override
-    public List<ResultModel> sendNotification(Message message) {
+    public List<ResultModel> sendNotification(Message message,Integer threadNumber) {
         List<ResultModel> resultModelList = new ArrayList<ResultModel>();
-        int threads = message.getMessageReceivers().size() / 30;
-        if (threads == 0) {
-            threads = 1;
-        }
+        int threads = threadNumber;
 
        /* Prepare a simple payload to push */
         PushNotificationPayload payload = PushNotificationPayload.complex();

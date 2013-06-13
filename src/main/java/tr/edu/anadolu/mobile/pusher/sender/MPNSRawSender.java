@@ -68,7 +68,7 @@ public class MPNSRawSender extends MPNSSender {
 
             } else {
                 if (channelStatus.compareTo("Expired") == 0)
-                   resultModel=new ResultModel(ResultType.UNSUCCESS_DELETE, message.getMessageReceivers().get(0).getDeviceId());
+                    resultModel=new ResultModel(ResultType.UNSUCCESS_DELETE, message.getMessageReceivers().get(0).getDeviceId());
                 else
                     resultModel=new ResultModel(ResultType.UNSUCCESSFUL, message.getMessageReceivers().get(0).getDeviceId());
             }
@@ -90,16 +90,16 @@ public class MPNSRawSender extends MPNSSender {
      * Each one represents a status of a pushed notification and  a device id for a device that notification sent to.
      */
     @Override
-    public List<ResultModel> sendNotification(Message message) {
+    public List<ResultModel> sendNotification(Message message, Integer threadNumber) {
         List<ResultModel> resultModelList = new ArrayList<ResultModel>();
-        int i = 50;
+        int i = message.getDevicesIds().size()/threadNumber;
         int k = 0;
-        for (int j = 0; j < message.getDevicesIds().size() / 50; j++) {
+        for (int j = 0; j < message.getDevicesIds().size()/threadNumber; j++) {
             Message newMessage = new Message(message.getMessageData(), message.getMessage(), message.getBadgeNo(), message.getSound(), message.getMessageReceivers().subList(k, i));
             MPNSJob thread = new MPNSJob(newMessage, this);
             resultModelList.addAll(thread.getResultModelList());
             k = i;
-            i = i + 50;
+            i = i + (message.getDevicesIds().size()/threadNumber);
         }
         if (k < message.getDevicesIds().size()) {
             Message newMessage = new Message(message.getMessageData(), message.getMessage(), message.getBadgeNo(), message.getSound(), message.getMessageReceivers().subList(k, message.getDevicesIds().size()));

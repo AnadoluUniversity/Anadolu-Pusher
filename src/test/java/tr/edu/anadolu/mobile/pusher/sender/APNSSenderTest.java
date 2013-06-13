@@ -86,7 +86,7 @@ public class APNSSenderTest {
                 any(List.class))).thenReturn(notifications);
 
         APNSSender s = new APNSSender(apnsConfig);
-        List<ResultModel> results = s.sendNotification(message);
+        List<ResultModel> results = s.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(), ResultType.UNSUCCESS_DELETE);
     }
 
@@ -114,7 +114,7 @@ public class APNSSenderTest {
                 any(List.class))).thenReturn(notifications);
 
         APNSSender s = new APNSSender(apnsConfig);
-        List<ResultModel> results = s.sendNotification(message);
+        List<ResultModel> results = s.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(), ResultType.UNSUCCESSFUL);
 
     }
@@ -141,7 +141,7 @@ public class APNSSenderTest {
                 any(List.class))).thenReturn(notifications);
 
         APNSSender s = new APNSSender(apnsConfig);
-        List<ResultModel> results = s.sendNotification(message);
+        List<ResultModel> results = s.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(), ResultType.SUCCESSFUL);
 
     }

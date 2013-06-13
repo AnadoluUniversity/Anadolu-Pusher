@@ -52,6 +52,7 @@ public class NotificationSenderTest {
         sender.setWpConfig(wpConfig);
         sender.setApnsConfig(apnsConfig);
         sender.setGcmConfig(gcmConfig);
+        sender.setThreadNumber(1);
 
         APNSSender mockAPNS = Mockito.mock(APNSSender.class);
         PowerMockito.whenNew(APNSSender.class).withArguments(apnsConfig).thenReturn(mockAPNS);
@@ -99,9 +100,9 @@ public class NotificationSenderTest {
         expectedMPNSResultModel.add(new ResultModel(ResultType.SUCCESSFUL, "http://db3.notify.live.net/throttledthirdparty/01.00/AAEQ3zzJQTTMR7EZEfGnDbmoAgAAAAADBAAAAAQUZm52OkJCMjg1QTg1QkZDMkUxREQ"));
 
 
-        when(mockAPNS.sendNotification(message)).thenReturn(expectedAPNSResultModel);
-        when(mockGCM.sendNotification(message)).thenReturn(expectedGCMResultModel);
-        when(mockWP.sendNotification(message)).thenReturn(expectedMPNSResultModel);
+        when(mockAPNS.sendNotification(message,1)).thenReturn(expectedAPNSResultModel);
+        when(mockGCM.sendNotification(message,1)).thenReturn(expectedGCMResultModel);
+        when(mockWP.sendNotification(message,1)).thenReturn(expectedMPNSResultModel);
 
         MessageResult result = sender.send(message);
         assertEquals(actualResult.getResults().get(0).getResultType(), result.getResults().get(0).getResultType());

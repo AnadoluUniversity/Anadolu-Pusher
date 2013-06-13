@@ -19,6 +19,6 @@ public interface SenderStrategy  {
      * @return a list of ResultModel object.
      * Each one represents a status of a pushed notification and  a device id for a device that notification was sent to.
      */
-    public List<ResultModel> sendNotification(Message message);
+    public List<ResultModel> sendNotification(Message message, Integer threadNumber);
 
 }

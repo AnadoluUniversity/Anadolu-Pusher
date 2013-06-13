@@ -38,7 +38,7 @@ public class GCMSender implements SenderStrategy {
      * {@link ResultType}
      */
     @Override
-    public List<ResultModel> sendNotification(Message message) {
+    public List<ResultModel> sendNotification(Message message, Integer threadNumber) {
         List<ResultModel> resultModelList = new ArrayList<ResultModel>();
         Sender s = new Sender(gcmConfig.getAPIKey());
         com.google.android.gcm.server.Message.Builder builder = new com.google.android.gcm.server.Message.Builder();

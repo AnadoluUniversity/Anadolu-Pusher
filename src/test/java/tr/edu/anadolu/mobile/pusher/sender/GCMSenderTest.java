@@ -99,7 +99,7 @@ public class GCMSenderTest {
         PowerMockito.when(multicastResultMock.getResults()).thenReturn(expectedResults);
         Mockito.when(sMock.send(any(com.google.android.gcm.server.Message.class),anyList(),eq(1))).thenReturn(multicastResultMock);
         GCMSender sender = new GCMSender(gcmConfig);
-        List<ResultModel> results = sender.sendNotification(message);
+        List<ResultModel> results = sender.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(),ResultType.SUCCESSFUL);
 
     }
@@ -128,7 +128,7 @@ public class GCMSenderTest {
         PowerMockito.when(multicastResultMock.getResults()).thenReturn(expectedResults);
         PowerMockito.when(sMock.send(any(com.google.android.gcm.server.Message.class),anyList(),eq(1))).thenReturn(multicastResultMock);
         GCMSender sender = new GCMSender(gcmConfig);
-        List<ResultModel> results = sender.sendNotification(message);
+        List<ResultModel> results = sender.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(),ResultType.SUCCESS_UPDATE);
 
     }
@@ -154,7 +154,7 @@ public class GCMSenderTest {
         PowerMockito.when(multicastResultMock.getResults()).thenReturn(expectedResults);
         PowerMockito.when(sMock.send(any(com.google.android.gcm.server.Message.class),anyList(),eq(1))).thenReturn(multicastResultMock);
         GCMSender sender = new GCMSender(gcmConfig);
-        List<ResultModel> results = sender.sendNotification(message);
+        List<ResultModel> results = sender.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(),ResultType.UNSUCCESSFUL);
 
     }
@@ -182,7 +182,7 @@ public class GCMSenderTest {
         PowerMockito.when(multicastResultMock.getResults()).thenReturn(expectedResults);
         PowerMockito.when(sMock.send(any(com.google.android.gcm.server.Message.class),anyList(),eq(1))).thenReturn(multicastResultMock);
         GCMSender sender = new GCMSender(gcmConfig);
-        List<ResultModel> results = sender.sendNotification(message);
+        List<ResultModel> results = sender.sendNotification(message,1);
         assertEquals(results.get(0).getResultType(),ResultType.UNSUCCESS_DELETE);
 
     }
