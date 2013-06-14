@@ -55,6 +55,7 @@ There is a sample code to push notifications to **Android, iOS and Windows Phone
     sender.setWpConfig(wpConfig);
     sender.setApnsConfig(apnsConfig);
     sender.setGcmConfig(gcmConfig);
+    sender.setThreadNumber(1);
     
     List<NotificationReceiver> receiverList = new ArrayList<NotificationReceiver>();
     NotificationReceiver receiver = new NotificationReceiver();
@@ -78,11 +79,12 @@ There is a sample code to push notifications to **Android, iOS and Windows Phone
     
     MessageResult result = sender.send(message);
 
-There is a sample code pushing notifications only to **Android** devices.
+There is a sample code to push notifications only to **Android** devices.
 	
 	NotificationSender sender = new NotificationSender();
 	GCMConfig gcmConfig = newGCMConfig('__API KEY__');
     sender.setGcmConfig(gcmConfig);
+    sender.setThreadNumber(1);
     
     List<NotificationReceiver> receiverList = new ArrayList<NotificationReceiver>();
 	NotificationReceiver receiver = new NotificationReceiver();
@@ -96,12 +98,13 @@ There is a sample code pushing notifications only to **Android** devices.
     
     MessageResult result = sender.send(message);
     
-There is a sample code pushing notifications only to **iOS** devices.
+There is a sample code to push notifications only to **iOS** devices.
 
 	NotificationSender sender = new NotificationSender();
     
     APNSConfig apnsConfig = new APNSConfig('__Path of the certificate file with .p12 extension__' , '__the password to use the certificate file__', '__true for production, false for development__');
     sender.setApnsConfig(apnsConfig);
+    sender.setThreadNumber(1);
     
     List<NotificationReceiver> receiverList = new ArrayList<NotificationReceiver>();
     NotificationReceiver receiver = new NotificationReceiver();
@@ -115,13 +118,14 @@ There is a sample code pushing notifications only to **iOS** devices.
     
     MessageResult result = sender.send(message);
     
-There is a sample code pushing notifications only to **Windows Phone** devices.
+There is a sample code to push notifications only to **Windows Phone** devices.
 
 	NotificationSender sender = new NotificationSender();
 	
     WPConfig wpConfig = new WPConfig("Notification", "Blue.jpg", "Message", "Red.jpg");
     wpConfig.setWpType(WPType.Tile);
     sender.setWpConfig(wpConfig);
+    sender.setThreadNumber(1);
     
     List<NotificationReceiver> receiverList = new ArrayList<NotificationReceiver>();
     NotificationReceiver receiver = new NotificationReceiver();
