@@ -1,9 +1,11 @@
 #ANADOLU PUSHER
 
-## Overview
+
 <br>	<center><img src="http://ios.anadolu.edu.tr/opensource/Anadolu-Pusher/aplogo.png"><br><br>
 Anadolu pusher is an open source maven project that provides its users to push notifications over __Google Cloud Messaging, Apple Push Notification Service and Microsoft Push Notification Service__ protocols.
-
+<br>
+## Overview
+<br>
 It makes easier to push notifications by preventing developers to deal with details about each specific protocol.
 <br>
 ## Requirements
